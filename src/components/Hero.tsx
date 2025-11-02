@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Button from "./Button";
 
 const HeroContent = ({ align = "center" }: { align?: "center" | "left" }) => (
   <div
@@ -19,9 +20,7 @@ const HeroContent = ({ align = "center" }: { align?: "center" | "left" }) => (
       Experience natural, lifelike audio and exceptional build quality made for
       the passionate music enthusiast.
     </p>
-    <button className="bg-[#D87D4A] hover:bg-[#fbaf85] text-white w-40 h-12 font-bold text-[13px] tracking-[1px] uppercase transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:shadow-lg cursor-pointer">
-      See Product
-    </button>
+    <Button variant="orange">See Product</Button>
   </div>
 );
 

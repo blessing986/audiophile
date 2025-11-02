@@ -42,7 +42,7 @@ const AudiophileProductsGrid = () => {
                       {product.name}
                     </h3>
 
-                    <button className="inline-flex items-center gap-2 text-[13px] font-bold tracking-[1px] text-black/50 hover:text-[#D87D4A] transition-colors duration-200 cursor-pointer">
+                    <button className="inline-flex items-center gap-2 text-[13px] font-bold tracking-[1px] text-black/50 group-hover:text-[#D87D4A] transition-colors duration-200 cursor-pointer">
                       SHOP
                       <svg
                         width="8"

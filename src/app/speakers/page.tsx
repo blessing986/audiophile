@@ -3,7 +3,7 @@ import BestAudioGear from "@/src/components/BestAudioGear";
 import PageHeader from "@/src/components/PageHeader";
 import ProductSection from "@/src/components/ProductSection";
 
-const page = () => {
+const Speaker = () => {
   return (
     <>
       <PageHeader title="Speakers" />
@@ -18,8 +18,7 @@ const page = () => {
       />
 
       <ProductSection
-        title="ZX7
-"
+        title="ZX7"
         subtitle="SPEAKER"
         description="Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use."
         imageMobile="/assets/speaker_2.png"
@@ -34,4 +33,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Speaker;

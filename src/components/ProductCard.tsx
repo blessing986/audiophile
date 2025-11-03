@@ -12,7 +12,7 @@ const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <div className="flex flex-col gap-6 justify-center items-center">
-      <div className="bg-[#F1F1F1] w-[327px] sm:w-[260px] h-[120px] md:w-[223px] md:h-[318px] lg:w-[350px] lg:h-[318px] flex items-center justify-center rounded-lg mx-auto">
+      <div className="bg-[#F1F1F1] w-[327px] sm:w-[260px] h-[120px] md:w-[223px] md:h-[318px] xl:w-[350px] lg:h-[318px] flex items-center justify-center rounded-lg mx-auto">
         <Image
           src={imageSrc}
           alt={title}

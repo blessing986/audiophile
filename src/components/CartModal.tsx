@@ -70,7 +70,7 @@ const CartModal = () => {
                   <div className="flex items-center bg-[#F1F1F1] w-24 h-8 justify-center gap-4 rounded-md">
                     <button
                       onClick={() => decreaseQuantity(item.id)}
-                      className="text-black/25 text-[13px] tracking-[1px] font-bold hover:text-black transition"
+                      className="text-black/25 text-[13px] tracking-[1px] font-bold hover:text-[#D87D4A] transition"
                     >
                       -
                     </button>
@@ -79,7 +79,7 @@ const CartModal = () => {
                     </span>
                     <button
                       onClick={() => increaseQuantity(item.id)}
-                      className="text-black/25 text-[13px] font-bold hover:text-black transition tracking-[1px]"
+                      className="text-black/25 text-[13px] font-bold hover:text-[#D87D4A] transition tracking-[1px]"
                     >
                       +
                     </button>

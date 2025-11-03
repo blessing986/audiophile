@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "./Button";
+import Link from "next/link";
 
 interface ProductSectionProps {
   title: string;
@@ -9,6 +10,7 @@ interface ProductSectionProps {
   imageDesktop: string;
   reverse?: boolean;
   isNew?: boolean;
+  link: string;
 }
 
 const ProductSection = ({
@@ -19,6 +21,7 @@ const ProductSection = ({
   imageDesktop,
   reverse = false,
   isNew = false,
+  link,
 }: ProductSectionProps) => {
   return (
     <section
@@ -63,7 +66,10 @@ const ProductSection = ({
         <p className="text-black/50 font-normal text-[15px] leading-[25px] w-[327px] sm:w-[562px] lg:w-[445px] text-center lg:text-start">
           {description}
         </p>
-        <Button variant="orange">See Product</Button>
+
+        <Link href={link}>
+          <Button variant="orange">See Product</Button>
+        </Link>
       </div>
     </section>
   );

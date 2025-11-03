@@ -1,6 +1,8 @@
 import AudiophileProductsGrid from "@/src/components/AudiophileProductsGrid";
 import BestAudioGear from "@/src/components/BestAudioGear";
+
 import PageHeader from "@/src/components/PageHeader";
+
 import ProductSection from "@/src/components/ProductSection";
 
 const Speaker = () => {
@@ -15,6 +17,7 @@ const Speaker = () => {
         imageMobile="/assets/speaker_1.png"
         imageDesktop="/assets/speaker_1_desktop.png"
         isNew
+        link="/products/zx9-speaker"
       />
 
       <ProductSection
@@ -24,6 +27,7 @@ const Speaker = () => {
         imageMobile="/assets/speaker_2.png"
         imageDesktop="/assets/speaker_2_desktop.png"
         reverse
+        link="/products/zx7-speaker"
       />
 
       <AudiophileProductsGrid />

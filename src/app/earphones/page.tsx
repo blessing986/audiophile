@@ -15,6 +15,7 @@ const EarPhones = () => {
         imageMobile="/assets/earphones_1.png"
         imageDesktop="/assets/earphones_1_desktop.png"
         isNew
+        link="/products/yx1-wireless-earphones"
       />
 
       <AudiophileProductsGrid />

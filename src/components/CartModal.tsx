@@ -26,11 +26,11 @@ const CartModal = () => {
   return (
     <div className="fixed inset-0 bg-black/50">
       <div
-        className="flex justify-center sm:justify-end items-start pt-28 md:pt-40 z-50 max-w-[1110px] mx-auto"
+        className="flex justify-center sm:justify-end items-start pt-28 md:pt-32 z-50 max-w-[1110px] mx-auto"
         onClick={toggleCart} // close when background is clicked
       >
         <div
-          className="bg-white rounded-lg p-6 w-[377px] shadow-lg relative mx-4 sm:mx-0 sm:mr-6 xl:mr-10"
+          className="bg-white rounded-lg p-6 w-[377px] shadow-lg relative mx-4 sm:mx-0 sm:mr-6 xl:mr-0"
           onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
         >
           <div className="flex justify-between items-center mb-6">
@@ -45,7 +45,7 @@ const CartModal = () => {
             </button>
           </div>
 
-          <div className="space-y-6 mb-6">
+          <div className="space-y-6 mb-6 max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
             {items.length === 0 ? (
               <p className="text-center text-black/50">Your cart is empty</p>
             ) : (

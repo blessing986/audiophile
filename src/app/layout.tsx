@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer";
 import { CartProvider } from "../context/CartContext";
 import CartModal from "../components/CartModal";
+import { Toaster } from "react-hot-toast";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
         <CartProvider>
         <Navbar />      
           {children}
+          <Toaster position="top-center" reverseOrder={false} />
           <CartModal />       
           <Footer />
           </CartProvider>

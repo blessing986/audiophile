@@ -9,6 +9,7 @@ import { products } from "../../data/products";
 import AudiophileProductsGrid from "@/src/components/AudiophileProductsGrid";
 import BestAudioGear from "@/src/components/BestAudioGear";
 import { useCart } from "@/src/context/CartContext";
+import toast from "react-hot-toast";
 
 const ProductDetailPage = () => {
   const router = useRouter();
@@ -21,6 +22,28 @@ const ProductDetailPage = () => {
 
   const decrement = () => setCount((prev) => prev - 1);
   const increment = () => setCount((prev) => prev + 1);
+
+   const handleAddToCart = () => {
+    addToCart({
+      id: product.slug,
+      name: product.name,
+      price: product.price,
+      image: product.images.main.desktop,
+      quantity: count,
+    });
+
+    toast.success(`${product.name} added to cart!`, {
+      duration: 3000,
+      style: {
+        background: "#D87D4A",
+        color: "#fff",
+        borderRadius: "8px",
+        padding: "12px 16px",
+      },
+    });
+
+    setCount(1);
+  };
 
   return (
     <section className="max-w-[1110px] mx-auto">
@@ -79,58 +102,21 @@ const ProductDetailPage = () => {
             <div className="flex items-center justify-center gap-8 bg-[#F1F1F1] w-[120px] h-12">
               <button
                 onClick={decrement}
-                className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
-                aria-label="Decrease"
+                className="text-black/25 text-[13px] tracking-[1px] font-bold hover:text-[#D87D4A] transition"
               >
-                <svg
-                  width="4"
-                  height="2"
-                  viewBox="0 0 4 2"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    opacity="0.25"
-                    d="M0.000214875 1.22852V2.42591e-05H3.90022V1.22852H0.000214875Z"
-                    fill="black"
-                  />
-                </svg>
+                -
               </button>
-
-              <span className="text-[13px] font-bold text-black tracking-[1px] text-center">
-                {count}
-              </span>
-
+              <span className="text-[13px] font-bold">{count}</span>
               <button
                 onClick={increment}
-                className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
-                aria-label="Increase"
+                className="text-black/25 text-[13px] font-bold hover:text-[#D87D4A] transition tracking-[1px]"
               >
-                <svg
-                  width="6"
-                  height="6"
-                  viewBox="0 0 6 6"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    opacity="0.25"
-                    d="M2.32721 5.87598V3.54898H0.000214875V2.32048H2.32721V-1.93715e-05H3.55572V2.32048H5.86971V3.54898H3.55572V5.87598H2.32721Z"
-                    fill="black"
-                  />
-                </svg>
+                +
               </button>
             </div>
             <Button
               variant="orange"
-              onClick={() =>
-                addToCart({
-                  id: product.slug,
-                  name: product.name,
-                  price: product.price,
-                  image: product.images.main.desktop,
-                  quantity: count,
-                })
+              onClick={handleAddToCart
               }
             >
               Add to cart

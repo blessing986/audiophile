@@ -35,6 +35,40 @@ export const products = [
     ],
   },
   {
+    slug: "xx99-mark-I-headphones",
+    name: "XX99 Mark I Headphones",
+    newProduct: false,
+    price: 1750,
+    description:
+      "As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.",
+    features: [
+      "As the headphones all others are measured against, the XX99 Mark I demonstrates over five decades of audio expertise, redefining the critical listening experience. This pair of closed-back headphones are made of industrial, aerospace-grade materials to emphasize durability at a relatively light weight of 11 oz.",
+      "From the handcrafted microfiber ear cushions to the robust metal headband with inner damping element, the components work together to deliver comfort and uncompromising sound. Its closed-back design delivers up to 27 dB of passive noise cancellation, reducing resonance by reflecting sound to a dedicated absorber. For connectivity, a specially tuned cable is included with a balanced gold connector.",
+    ],
+    boxItems: [
+      { quantity: "1x", item: "Headphone Unit" },
+      { quantity: "2x", item: "Replacement Earcups" },
+      { quantity: "1x", item: "User Manual" },
+      { quantity: "1x", item: "3.5mm 5m Audio Cable" },
+    ],
+    images: {
+      main: {
+        mobile: "/assets/headphones_2.png",
+        desktop: "/assets/headphones_2_desktop.png",
+      },
+      gallery: [
+        "/assets/pd_headphone_4.png",
+        "/assets/pd_headphone_5.png",
+        "/assets/pd_headphone_6.png",
+      ],
+    },
+    recommendations: [
+      { title: "XX99 MARK II", image: "/assets/headphones_1.png" },
+      { title: "XX59", image: "/assets/headphones_3.png" },
+      { title: "ZX9 SPEAKER", image: "/assets/speaker_1.png" },
+    ],
+  },
+  {
     slug: "xx59-headphones",
     name: "XX59 Headphones",
     newProduct: false,

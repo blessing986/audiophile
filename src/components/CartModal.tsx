@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useCart } from "@/src/context/CartContext";
 
 const CartModal = () => {
+  const router = useRouter();
   const {
     items,
     clearCart,
@@ -15,6 +17,11 @@ const CartModal = () => {
   } = useCart();
 
   if (!isOpen) return null;
+
+    const handleCheckout = () => {
+    toggleCart();
+    router.push("/checkout"); 
+  };
 
   return (
     <div className="fixed inset-0 bg-black/50">
@@ -95,7 +102,7 @@ const CartModal = () => {
           </div>
 
           <button
-            onClick={toggleCart}
+            onClick={handleCheckout}
             className="w-full bg-[#D87D4A] text-white py-3 hover:bg-[#FBAF85] font-bold text-[13px] tracking-[1px] uppercase transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:shadow-lg cursor-pointer"
           >
             Checkout

@@ -1,7 +1,12 @@
+"use client";
+
+import { useCart } from "@/src/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
 
 const Desktop = () => {
+  const { toggleCart } = useCart();
+
   return (
     <nav className="hidden lg:flex bg-[#0E0E0E] ">
       <div className="xl:max-w-[1110px] mx-auto flex justify-between items-center w-full px-6 py-8 xl:px-0 border-b border-white/20">
@@ -19,7 +24,7 @@ const Desktop = () => {
           ))}
         </div>
 
-        <button className="cursor-pointer">
+        <button onClick={toggleCart} className="cursor-pointer">
           <Image src="icons/carts.svg" alt="Cart icon" width={30} height={20} />
         </button>
       </div>

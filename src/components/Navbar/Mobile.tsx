@@ -3,9 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useCart } from "@/src/context/CartContext";
 
 const Mobile = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { toggleCart } = useCart();
 
   return (
     <nav className="bg-[#0E0E0E] md:hidden relative">
@@ -38,7 +40,7 @@ const Mobile = () => {
 
         <Image src="/assets/logo.svg" alt="Logo" width={150} height={40} />
 
-        <button>
+        <button onClick={toggleCart}>
           <Image
             src="/icons/carts.svg"
             alt="Cart icon"

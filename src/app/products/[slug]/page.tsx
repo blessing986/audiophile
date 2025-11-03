@@ -8,12 +8,14 @@ import { useState } from "react";
 import { products } from "../../data/products";
 import AudiophileProductsGrid from "@/src/components/AudiophileProductsGrid";
 import BestAudioGear from "@/src/components/BestAudioGear";
+import { useCart } from "@/src/context/CartContext";
 
 const ProductDetailPage = () => {
-  const router = useRouter(); 
+  const router = useRouter();
   const { slug } = useParams<{ slug: string }>();
   const product = products.find((p) => p.slug === slug);
   const [count, setCount] = useState(1);
+  const { addToCart } = useCart();
 
   if (!product) return notFound();
 
@@ -58,12 +60,12 @@ const ProductDetailPage = () => {
 
           <h1 className="text-[28px] sm:text-[40px] md:text-[28px] lg:text-[40px] font-bold text-black sm:leading-11 md:leading-8 lg:leading-11 tracking-[1px] lg:tracking-[1.43px] uppercase text-start lg:text-start">
             {product.name}
-             {product.subname && (
-            <>
-              <br />
-              {product.subname}
-            </>
-          )}
+            {product.subname && (
+              <>
+                <br />
+                {product.subname}
+              </>
+            )}
           </h1>
           <p className="text-black/50 font-normal text-[15px] leading-[25px] w-[327px] sm:w-[562px] md:w-[340px] lg:w-[445px] text-start lg:text-start">
             {product.description}
@@ -119,7 +121,20 @@ const ProductDetailPage = () => {
                 </svg>
               </button>
             </div>
-            <Button variant="orange">Add to cart</Button>
+            <Button
+              variant="orange"
+              onClick={() =>
+                addToCart({
+                  id: product.slug,
+                  name: product.name,
+                  price: product.price,
+                  image: product.images.main.desktop,
+                  quantity: count,
+                })
+              }
+            >
+              Add to cart
+            </Button>
           </div>
         </div>
       </section>
@@ -198,8 +213,8 @@ const ProductDetailPage = () => {
       </section>
 
       <AudiophileProductsGrid />
-      
-      <BestAudioGear/>
+
+      <BestAudioGear />
     </section>
   );
 };

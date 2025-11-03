@@ -1,11 +1,13 @@
 "use client";
 
+import { useCart } from "@/src/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 const Tablet = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { toggleCart } = useCart();
 
   return (
     <nav className="bg-[#0E0E0E] hidden md:flex lg:hidden">
@@ -46,7 +48,7 @@ const Tablet = () => {
           </div>
         </div>
 
-        <button className="cursor-pointer">
+        <button onClick={toggleCart} className="cursor-pointer">
           <Image src="icons/carts.svg" alt="Cart icon" width={30} height={20} />
         </button>
       </div>

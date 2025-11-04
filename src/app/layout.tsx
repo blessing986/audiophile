@@ -3,9 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer";
-import { CartProvider } from "../context/CartContext";
-import CartModal from "../components/CartModal";
-import { Toaster } from "react-hot-toast";
+import Providers from "./providers";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -26,13 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.className} antialiased`}>
-        <CartProvider>
-        <Navbar />      
+        <Providers>
+          <Navbar />
           {children}
-          <Toaster position="top-center" reverseOrder={false} />
-          <CartModal />       
+
           <Footer />
-          </CartProvider>
+        </Providers>
       </body>
     </html>
   );

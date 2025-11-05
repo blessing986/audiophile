@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎧 Audiophile E-Commerce Store
+**Live demo:** [audiophile-lilac-psi.vercel.app](https://audiophile-lilac-psi.vercel.app) 
 
-## Getting Started
+Audiophile is a full-stack e-commerce web application built with **Next.js**, **Convex**, and **Nodemailer**. It delivers a modern, responsive shopping experience with serverless backend logic and automated email notifications for orders.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🛒 Product listing, detail pages, and cart functionality
+- 💳 Order creation and checkout workflow
+- 📧 Automated order confirmation emails using **Nodemailer**
+- ⚙️ Serverless backend powered by **Convex**
+- 🌗 Clean, responsive UI using **Tailwind CSS**
+- 🧩 TypeScript for type safety
+- 🌍 Easy deployment via **Vercel**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧰 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Frontend**
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Backend**
+- Convex (for data storage and CRUD operations)
+- Nodemailer (for transactional emails)
 
-## Learn More
+**Deployment**
+- Vercel (frontend)
+- Convex Cloud (backend)
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
+Ensure you have the following installed:
+- Node.js (v18 or later)
+- npm, yarn, or pnpm
+- Convex CLI (install via `npm install convex`)
+- An SMTP service for Nodemailer (e.g., Gmail, Resend, or SendGrid)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Clone the Repository
+git clone https://github.com/blessing986/audiophile.git  
+cd audiophile
 
-## Deploy on Vercel
+### Install Dependencies
+npm install  
+# or  
+yarn  
+# or  
+pnpm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Environment Variables
+Create a `.env.local` file in the root directory and add the following:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+CONVEX_DEPLOYMENT=your_convex_deployment_url  
+NEXT_PUBLIC_CONVEX_URL=http://127.0.0.1:3210  
+EMAIL_USER=your_email@example.com  
+EMAIL_PASS=your_email_password_or_app_password  
+RESEND_API_KEY=your_resend_key_if_any
+
+### Run Convex Backend
+npx convex dev
+
+### Run the Frontend
+npm run dev  
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 🧮 Folder Structure
+
+audiophile/  
+├─ convex/  
+│  ├─ orders.ts              → Order logic (create, fetch, update)  
+│  ├─ products.ts            → Product fetching logic  
+│  ├─ dataModel.ts           → Convex schema definition  
+│  └─ auth.ts (optional)     → Authentication logic  
+├─ src/  
+│  ├─ app/                   → Next.js App Router  
+│  ├─ components/            → Reusable UI components  
+│  ├─ lib/                   → Utility functions (helpers)  
+│  ├─ data/                  → Static product data  
+│  └─ styles/                → Global styles  
+├─ public/                   → Static assets (images, icons)  
+├─ .env.local                → Environment variables  
+├─ next.config.mjs  
+├─ package.json  
+└─ tsconfig.json  
+
+## 📧 Email Functionality
+
+This project uses **Nodemailer** to send HTML order confirmation emails.  
+The email logic lives in `/app/api/send-order-email/route.ts` and includes:
+- Customer name and email  
+- Ordered items, quantity, and total price  
+- Automatically triggered after successful order creation
+
+## 🔗 Convex Integration
+
+**Convex** powers the backend, handling:
+- CRUD operations for orders and products  
+- Schema definitions in `dataModel.ts`  
+- Secure, serverless storage
+
+To deploy Convex in production:  
+npx convex deploy
+
+## 🧪 Scripts
+
+npm run dev        → Start development server  
+npm run build      → Build for production  
+npm run start      → Run production build  
+npm run lint       → Lint code for errors  
+
+## 📬 Contact
+
+**Author:** Blessing  
+**GitHub:** [@blessing986](https://github.com/blessing986)  
+**Project Link:** [https://github.com/blessing986/audiophile](https://github.com/blessing986/audiophile)
+
+⭐️ *If you like this project, please give it a star on GitHub!*
